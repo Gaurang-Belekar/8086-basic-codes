@@ -1,0 +1,18 @@
+DATA SEGMENT
+ A DW 0CH
+ B DW 02H
+ C DW ?
+DATA ENDS
+
+CODE SEGMENT
+ ASSUME CS:CODE, DS: DATA
+ START: MOV AX,DATA
+        MOV DS,AX
+        MOV AX,A
+        MOV BX,B
+        DIV BX
+        MOV C,AX
+        MOV AH,CH
+        INT 21H
+ END START
+CODE ENDS
